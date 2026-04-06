@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.catundertheleaf.onnxrnexample"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +20,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.catundertheleaf.onnxrnexample"
     },
     "web": {
       "output": "static",
@@ -36,6 +38,25 @@
           "backgroundColor": "#ffffff",
           "dark": {
             "backgroundColor": "#000000"
+          }
+        }
+      ],
+      [
+        "./plugins/withOrt"
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 36,
+            "targetSdkVersion": 36,
+            "buildToolsVersion": "36.0.0",
+            "enableMinifyInReleaseBuilds": true,
+            "extraProguardRules": "-keep class ai.onnxruntime.** { *; }\n-keep class com.microsoft.onnxruntime.extensions.** { *; }\n-keepclasseswithmembernames class * { native <methods>; }\n-keepclassmembers enum * { *; }\n-keep class ai.onnxruntime.OnnxTensor { *; }\n-keep class ai.onnxruntime.OnnxValue { *; }\n-keep class ai.onnxruntime.OrtSession { *; }\n-keep class java.io.Serializable { *; }",
+            "useDayNightTheme": true
+          },
+          "ios": {
+            "deploymentTarget": "15.5"
           }
         }
       ]
